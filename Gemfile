@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # i18n
 gem 'rails-i18n'
 
+gem 'ransack'
+
 #Bootstrap, JS
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '4.3.1'
