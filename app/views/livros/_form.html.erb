@@ -1,0 +1,57 @@
+<%= form_with(model: livro, local: true) do |form| %>
+  <% if livro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
+
+      <ul>
+      <% livro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+
+    <!-- Nome -->
+    <div class="field">
+      <%= form.label :nome, class: "mb-0 title-label" %>
+      <%= form.text_field :nome, class: "form-control mb-4", placeholder: "Nome do livro" %>
+    </div>
+
+    <!-- Autor -->
+    <div class="field">
+      <%= form.label :autor, class: "mb-0 title-label" %>
+      <%= form.text_field :autor, class: "form-control mb-4", placeholder: "Nome do(a) autor(a)" %>
+    </div>
+
+    <!-- Editora -->
+    <div class="field">
+      <%= form.label :editora, class:"mb-0 title-label" %>
+      <%= form.text_field :editora, class: "form-control mb-4", placeholder: "Editora" %>
+    </div>
+
+    <!-- Assunto -->
+    <div class="field">
+      <%= form.label :assunto, class:"mb-0 title-label" %>
+      <%= form.text_field :assunto, class: "form-control mb-4", placeholder: "Assunto" %>
+    </div>
+
+    <!-- <select class="form-control">
+      <option>Arquitetura</option>
+      <option>Educação Física</option>
+      <option>Informática</option>
+      <option>Nutrição</option>
+    </select> -->
+
+    <!-- Quantidade disponível -->
+    <div class="field">
+      <%= form.label :quantidade, class:"mb-0 title-label" %>
+      <%= form.text_field :quantidade, class: "form-control mb-4", placeholder: "Quantidade de livros disponível" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
