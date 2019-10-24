@@ -21,4 +21,13 @@
   <body>
     <%= yield %>
   </body>
+
+  <script type="text/javascript">
+
+  $(".alert").fadeTo(4000, 500).slideUp(500, function(){
+      $(".alert").alert('close');
+      $(this).remove();
+  });
+
+  </script>
 </html>

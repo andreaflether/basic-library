@@ -1,6 +1,11 @@
-<h1>Editing Livro</h1>
+<%= render 'menuprincipal' %>
+<br>
+<h1 class="text-center">Editar Livro</h1>
 
 <%= render 'form', livro: @livro %>
 
-<%= link_to 'Show', @livro %> |
-<%= link_to 'Back', livros_path %>
+<br>
+<div class="container">
+  <%= link_to 'Ver informações', @livro, class:"txt-link" %> |
+  <%= link_to 'Voltar', livros_path, class:"txt-link" %>
+</div>

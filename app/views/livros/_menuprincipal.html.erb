@@ -8,10 +8,10 @@
   <div class="collapse navbar-collapse text-center" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Página inicial <span class="sr-only">(current)</span></a>
+        <%= link_to 'Página inicial', root_path, class: "nav-link txt-link-p" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Cadastrar Livro', new_livro_path, class: "nav-link" %>
+        <%= link_to 'Cadastrar Livro', new_livro_path, class: "nav-link txt-link-p" %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 justify-content-center">

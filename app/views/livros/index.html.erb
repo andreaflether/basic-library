@@ -1,6 +1,24 @@
 <%= render 'menuprincipal' %>
-<p id="notice"><%= notice %></p>
-<h1 class="text-center">Livros</h1>
+<br>
+<% if alert %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= alert %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% end %>
+
+<% if notice %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+<br>
+<h1 class="text-center">Livros cadastrados</h1>
 <br>
 <div class="container">
   <table class="table table-hover">
@@ -16,7 +34,7 @@
     </thead>
 
     <tbody>
-      <% @livros.each do |livro| %>
+      <% @livros.order(nome: :asc).each do |livro| %>
         <tr>
           <td><%= livro.nome %></td>
           <td><%= livro.autor %></td>
@@ -31,6 +49,9 @@
     </tbody>
   </table>
 
-  <%= link_to 'Cadastrar novo livro', new_livro_path %>
+  <br>
+  <div class="text-center">
+    <%= link_to 'Cadastrar novo livro', new_livro_path, class:"txt-link btn btn-primary" %>
+  </div>
 </div>
 <br>
