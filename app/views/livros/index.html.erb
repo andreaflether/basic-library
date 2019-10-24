@@ -1,5 +1,5 @@
+<%= render 'menuprincipal' %>
 <p id="notice"><%= notice %></p>
-
 <h1 class="text-center">Livros</h1>
 <br>
 <div class="container">
@@ -25,13 +25,12 @@
           <td><%= livro.quantidade %></td>
           <td><%= link_to 'Ver', livro %></td>
           <td><%= link_to 'Editar', edit_livro_path(livro) %></td>
-          <td><%= link_to 'Apagar', livro, method: :delete, data: { confirm: 'Tem certeza que deseja apagar
-          o livro selecionado?' } %></td>
+          <td><%= link_to 'Apagar', livro, method: :delete, data: { confirm: 'Tem certeza que deseja apagar o livro selecionado?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= link_to 'Cadastrar novo livro', new_livro_path %>
 </div>
 <br>
-
-<%= link_to 'Cadastrar novo livro', new_livro_path %>
