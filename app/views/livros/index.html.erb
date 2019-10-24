@@ -48,14 +48,6 @@
       <% end %>
     </tbody>
   </table>
-
-  <br>
-  <h3>Teste de pesquisa</h3><br>
-  <%= search_form_for @q do |f| %>
-    <%= f.label :nome %>
-    <%= f.search_field :nome_cont %>
-    <%= f.submit %>
-  <% end %>
   <br>
   <div class="text-center">
     <%= link_to 'Cadastrar novo livro', new_livro_path, class:"txt-link btn btn-primary" %>

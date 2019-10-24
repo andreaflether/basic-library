@@ -4,9 +4,13 @@ class LivrosController < ApplicationController
   # GET /livros
   # GET /livros.json
   def index
-    @livros = Livro.all
-    @q = Livro.ransack(params[:q])
-    @livros = @q.result(distinct: true)
+    # @q = Livro.ransack(params[:q])
+    # @livros = @q.result(distinct: true)
+    if params[:nome]
+      @livros = Livro.where('nome LIKE ?', "%#{params[:nome]}%")
+    else
+      @livros = Livro.all
+  end
   end
 
   # GET /livros/1
