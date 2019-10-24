@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# i18n
+gem 'rails-i18n'
+
 #Bootstrap, JS
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '4.3.1'
