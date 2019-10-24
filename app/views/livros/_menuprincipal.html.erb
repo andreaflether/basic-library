@@ -15,7 +15,7 @@
       </li>
     </ul>
 
-    <div class="form-inline">
+    <div class="form-inline justify-content-center">
       <%= form_tag(livros_path, method: :get) do %>
         <%= text_field_tag :nome, params[:nome], class:"form-control mr-sm-4", placeholder: "Procurar livro..." %>
         <%= submit_tag 'Procurar', name: nil, class:"btn btn-secondary my-2 my-sm-0" %>
