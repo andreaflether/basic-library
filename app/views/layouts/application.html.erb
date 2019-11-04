@@ -20,7 +20,53 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-book-open"></i><b> Library</b></a>
+        <!-- <i class="fas fa-book"></i> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-center" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to 'Página inicial', root_path, class: "nav-link txt-link-p" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Cadastrar Livro', new_livro_path, class: "nav-link txt-link-p" %>
+            </li>
+          </ul>
+
+          <div class="form-inline justify-content-center">
+            <%= form_tag(livros_path, method: :get) do %>
+            <%= text_field_tag :nome, params[:nome], class:"form-control mr-sm-4", placeholder: "Procurar livro..." %>
+            <%= submit_tag 'Procurar', name: nil, class:"btn btn-secondary my-2 my-sm-0" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <% if alert %>
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+          <%= alert %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+
+      <% if notice %>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+          <%= notice %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 
 </html>

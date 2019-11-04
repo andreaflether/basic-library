@@ -34,7 +34,7 @@ class LivrosController < ApplicationController
 
     respond_to do |format|
       if @livro.save
-        format.html { redirect_to @livro, notice: 'Livro criado com sucesso.' }
+        format.html { redirect_to @livro, notice: 'Livro cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @livro }
       else
         format.html { render :new }
