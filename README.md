@@ -1,24 +1,15 @@
-# README
+# basic-library
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trabalho da disciplina Desenvolvimento Web - Unifametro.
 
-Things you may want to cover:
+### Página inicial (/livros)
+![Página inicial](https://drive.google.com/uc?authuser=0&id=1ECiOuhLNllSSWBkObfMuc7kYiq9KDblA&export=download)
 
-* Ruby version
+### Display de um livro especfico (/livros/{id-do-livro}
+![Display de livro](https://drive.google.com/uc?authuser=0&id=1Z9Jphw1-_BRrXDK-GiMJazD-hkQ-2q-U&export=download)
 
-* System dependencies
+### Editar livro (/livros/{id-do-livro}/edit)
+![Editar livro](https://drive.google.com/uc?authuser=0&id=1qb2OzazmUeVs-8EoCJiPp2WPAP4oVyl9&export=download)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Cadastrar livro (/livros/new)
+![Cadastrar livro](https://drive.google.com/uc?authuser=0&id=1FW_cLA5MUrAU0iGZWlQCoYhkUyUfDjca&export=download)
