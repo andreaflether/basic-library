@@ -45,6 +45,13 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether'
 end
 
+#Kaminari
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+
+#Faker
+gem 'faker'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

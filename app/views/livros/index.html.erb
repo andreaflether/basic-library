@@ -1,7 +1,7 @@
 <br>
 <br>
 <% if @livros.blank? %>
-  <h3 class="text-center">Nenhum livro cadastrado.</h3>
+  <h3 class="text-center">Nenhum livro disponível.</h3>
 <% else %>
 <h1 class="text-center">Livros cadastrados</h1>
 <br>
@@ -33,6 +33,9 @@
         <% end %>
     </tbody>
   </table>
+
+  <%= paginate @livros, theme: 'twitter-bootstrap-4' %>
+
 </div>
 <% end %>
 

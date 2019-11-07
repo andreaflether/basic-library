@@ -1,14 +1,11 @@
   <div class="card mt-3">
     <h2 class="card-header"><%= @livro.nome %></h2>
     <div class="card-body card-txt">
-      <!-- <h5 class="card-title">Special title treatment</h5> -->
       <p class="card-text"><b>Nome do livro: </b><%= @livro.nome %></p>
       <p class="card-text"><b>Autor: </b><%= @livro.autor %></p>
       <p class="card-text"><b>Editora: </b><%= @livro.editora %></p>
       <p class="card-text"><b>Assunto: </b><%= @livro.assunto %></p>
       <p class="card-text"><b>Quantidade disponível: </b><%= @livro.quantidade %></p>
-
-
       <%= link_to 'Cadastrar novo livro', new_livro_path, class: "btn btn-primary" %>
     </div>
   </div>
