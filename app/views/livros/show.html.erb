@@ -5,7 +5,7 @@
       <p class="card-text"><b>Autor: </b><%= @livro.autor %></p>
       <p class="card-text"><b>Editora: </b><%= @livro.editora %></p>
       <p class="card-text"><b>Assunto: </b><%= @livro.assunto %></p>
-      <p class="card-text"><b>Quantidade disponível: </b><%= @livro.quantidade %></p>
+      <p class="card-text"><b>Descrição </b><%= @livro.descricao %></p>
       <%= link_to 'Cadastrar novo livro', new_livro_path, class: "btn btn-primary" %>
     </div>
   </div>

@@ -25,7 +25,7 @@
           <td><%= livro.autor %></td>
           <td><%= livro.editora %></td>
           <td><%= livro.assunto %></td>
-          <td><%= livro.quantidade %></td>
+          <td><%#= livro.quantidade %></td>
           <td><%= link_to 'Ver', livro %></td>
           <td><%= link_to 'Editar', edit_livro_path(livro) %></td>
           <td><%= link_to 'Apagar', livro, method: :delete, data: { confirm: 'Tem certeza que deseja apagar o livro selecionado?' } %></td>

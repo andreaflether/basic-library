@@ -1,6 +1,7 @@
 class LivrosController < ApplicationController
   before_action :set_livro, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /livros
   # GET /livros.json
   def index
@@ -73,6 +74,6 @@ class LivrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def livro_params
-      params.require(:livro).permit(:nome, :autor, :editora, :assunto, :quantidade)
+      params.require(:livro).permit(:nome, :autor, :editora, :assunto, :descricao)
     end
 end

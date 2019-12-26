@@ -2,7 +2,6 @@
   <% if livro.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
-
       <ul>
       <% livro.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,7 +9,8 @@
       </ul>
     </div>
   <% end %>
-
+<div class="row">
+  <div class="col-md-8 mx-auto">
     <!-- Nome -->
     <div class="field">
       <%= form.label :nome, class: "mb-0 title-label" %>
@@ -37,12 +37,14 @@
 
     <!-- Quantidade disponível -->
     <div class="field">
-      <%= form.label :quantidade, class:"mb-0 title-label" %>
-      <%= form.text_field :quantidade, class: "form-control mb-4 pcd", placeholder: "Quantidade de livros disponível" %>
+      <%= form.label :descricao, "Descrição", class:"mb-0 title-label" %>
+      <%= form.text_field :descricao, class: "form-control mb-4 pcd", placeholder: "Descrição" %>
     </div>
 
     <!-- Botão submit -->
-    <div class="actions">
+    <div class="actions text-center">
       <%= form.submit class: 'btn btn-primary' %>
     </div>
+  </div>
+</div>
 <% end %>
