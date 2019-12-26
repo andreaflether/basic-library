@@ -4,6 +4,10 @@
   transition: 0.3s;
 }
 
+// .searchbar {
+//   margin-right: 65px !important;
+// }
+
 .btn-primary:hover {
   background-color: rgb(0, 111, 176) !important;
   background: rgb(0, 111, 176) !important;
@@ -72,6 +76,12 @@ table {
   z-index: 1;
 }
 
-.navbar  {
+.navbar {
   padding: 0.5rem 1rem !important
+}
+
+@media (max-width: 991px) {
+  .searchbar {
+    margin-right: 0 !important;
+  }
 }

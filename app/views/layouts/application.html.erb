@@ -28,9 +28,9 @@
         </button>
 
         <div class="collapse navbar-collapse text-center" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav">
             <li class="nav-item">
-              <%= link_to 'Página inicial', root_path, class: "nav-link txt-link-p" %>
+              <%= link_to 'Dashboard', root_path, class: "nav-link txt-link-p" %>
             </li>
             <% unless !user_signed_in? %>
             <li class="nav-item">
@@ -40,7 +40,7 @@
           </ul>
 
           <% if controller_name == 'livros' %>
-          <div class="form-inline justify-content-center">
+          <div class="form-inline searchbar justify-content-center ml-auto">
             <%= form_tag(livros_path, method: :get) do %>
             <%= text_field_tag :nome, params[:nome], class:"form-control mr-sm-4", placeholder: "Procurar livro..." %>
             <%= submit_tag 'Procurar', name: nil, class:"btn btn-secondary my-2 my-sm-0" %>
@@ -60,12 +60,12 @@
           </li>
           <% else %>
 
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <%= link_to 'Login', new_user_session_path, class: "nav-link txt-link-p" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Criar conta', new_user_registration_path, class: "nav-link txt-link-p" %>
+              <%= link_to 'Criar conta', new_user_registration_path, class: "nav-link txt-link-p last-item" %>
             </li>
           </ul>
           <% end %>
