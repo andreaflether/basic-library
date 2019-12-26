@@ -5,10 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Font Awesome e Tema 'Materia' -->
     <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
@@ -29,20 +29,46 @@
 
         <div class="collapse navbar-collapse text-center" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <%= link_to 'Página inicial', root_path, class: "nav-link txt-link-p" %>
             </li>
+            <% unless !user_signed_in? %>
             <li class="nav-item">
               <%= link_to 'Cadastrar Livro', new_livro_path, class: "nav-link txt-link-p" %>
             </li>
+            <% end %>
           </ul>
 
+          <% if controller_name == 'livros' %>
           <div class="form-inline justify-content-center">
             <%= form_tag(livros_path, method: :get) do %>
             <%= text_field_tag :nome, params[:nome], class:"form-control mr-sm-4", placeholder: "Procurar livro..." %>
             <%= submit_tag 'Procurar', name: nil, class:"btn btn-secondary my-2 my-sm-0" %>
             <% end %>
           </div>
+          <% end %>
+
+          <% if user_signed_in? %>
+          <li class="nav-item nav-link dropdown">
+            <a class="nav-link dropdown-toggle text-light txt-link-p" data-toggle="dropdown" href="#"
+            role="button" aria-haspopup="true" aria-expanded="false">Andréa Alencar</a>
+            <div class="dropdown-menu">
+              <%= link_to "Preferências", edit_user_registration_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+          <% else %>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to 'Login', new_user_session_path, class: "nav-link txt-link-p" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Criar conta', new_user_registration_path, class: "nav-link txt-link-p" %>
+            </li>
+          </ul>
+          <% end %>
         </div>
       </div>
     </nav>
@@ -65,7 +91,7 @@
           </button>
         </div>
       <% end %>
-      
+
       <%= yield %>
     </div>
   </body>
