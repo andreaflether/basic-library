@@ -1,5 +1,5 @@
 class LivrosController < ApplicationController
-  before_action :set_livro, only: [:show, :edit, :update, :destroy]
+  before_action :set_livro, only: [:show, :edit, :update, :destroy, :estante]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /livros
@@ -63,6 +63,22 @@ class LivrosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to livros_url, notice: 'Livro apagado com sucesso.' }
       format.json { head :no_content }
+    end
+  end
+
+  # Adicionar e remover livros na/da estante para o current_user
+  def estante
+    tipo = params[:tipo]
+
+    if tipo == 'add'
+      current_user.adicoes_estante << @livro
+      redirect_to root_path, notice: "#{@livro.nome} foi adicionado à sua estante!"
+    elsif tipo == 'del'
+      current_user.adicoes_estante.delete(@livro)
+      redirect_to root_path, notice: "#{@livro.nome} foi removido da sua estante."
+    else
+      # nenhum tipo. nada deve acontecer.
+      redirect_to livro_path(@book), alert: "Oops! Algo deu errado. Tente novamente."
     end
   end
 
