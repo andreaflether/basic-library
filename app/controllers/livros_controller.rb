@@ -15,6 +15,7 @@ class LivrosController < ApplicationController
   # GET /livros/1
   # GET /livros/1.json
   def show
+    @categorias = @livro.assunto.split(',')
   end
 
   # GET /livros/new
@@ -72,10 +73,10 @@ class LivrosController < ApplicationController
 
     if tipo == 'add'
       current_user.adicoes_estante << @livro
-      redirect_to root_path, notice: "#{@livro.nome} foi adicionado à sua estante!"
+      redirect_to request.referrer, notice: "#{@livro.nome} foi adicionado à sua estante!"
     elsif tipo == 'del'
       current_user.adicoes_estante.delete(@livro)
-      redirect_to root_path, notice: "#{@livro.nome} foi removido da sua estante."
+      redirect_to request.referrer, notice: "#{@livro.nome} foi removido da sua estante."
     else
       # nenhum tipo. nada deve acontecer.
       redirect_to livro_path(@book), alert: "Oops! Algo deu errado. Tente novamente."
@@ -90,6 +91,6 @@ class LivrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def livro_params
-      params.require(:livro).permit(:nome, :autor, :editora, :assunto, :descricao)
+      params.require(:livro).permit(:nome, :autor, :editora, :assunto, :descricao, :thumbnail)
     end
 end

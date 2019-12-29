@@ -9,42 +9,50 @@
       </ul>
     </div>
   <% end %>
-<div class="row">
-  <div class="col-md-8 mx-auto">
-    <!-- Nome -->
-    <div class="field">
-      <%= form.label :nome, class: "mb-0 title-label" %>
-      <%= form.text_field :nome, class: "form-control mb-4 pcd", placeholder: "Nome do livro" %>
-    </div>
 
-    <!-- Autor -->
-    <div class="field">
-      <%= form.label :autor, class: "mb-0 title-label" %>
-      <%= form.text_field :autor, class: "form-control mb-4 pcd", placeholder: "Nome do(a) autor(a)" %>
-    </div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
 
-    <!-- Editora -->
-    <div class="field">
-      <%= form.label :editora, class:"mb-0" %>
-      <%= form.text_field :editora, class: "form-control mb-4 pcd", placeholder: "Editora" %>
-    </div>
+      <!-- Nome -->
+      <div class="field">
+        <%= form.label :nome, class: "mb-0 title-label" %>
+        <%= form.text_field :nome, class: "form-control mb-4 pcd", placeholder: "Nome do livro" %>
+      </div>
 
-    <!-- Assunto -->
-    <div class="field">
-      <%= form.label :assunto, class:"mb-0" %>
-      <%= form.text_field :assunto, class: "form-control mb-4 pcd", placeholder: "Assunto" %>
-    </div>
+      <!-- Autor -->
+      <div class="field">
+        <%= form.label :autor, class: "mb-0 title-label" %>
+        <%= form.text_field :autor, class: "form-control mb-4 pcd", placeholder: "Nome do(a) autor(a)" %>
+      </div>
 
-    <!-- Descrição -->
-    <div class="field">
-      <%= form.label :descricao, "Descrição", class:"mb-0" %>
-      <%= form.text_field :descricao, class: "form-control mb-4 pcd", placeholder: "Descrição" %>
-    </div>
+      <!-- Editora -->
+      <div class="field">
+        <%= form.label :editora, class:"mb-0" %>
+        <%= form.text_field :editora, class: "form-control mb-4 pcd", placeholder: "Editora" %>
+      </div>
 
-    <!-- Botão submit -->
-    <div class="actions text-center">
-      <%= form.submit class: 'btn btn-primary' %>
+      <!-- Assunto -->
+      <div class="field">
+        <%= form.label :assunto, class:"mb-0" %>
+        <%= form.text_field :assunto, class: "form-control mb-4 pcd", placeholder: "Assunto" %>
+      </div>
+
+      <!-- Descrição -->
+      <div class="field">
+        <%= form.label :descricao, "Descrição", class:"mb-0" %>
+        <%= form.text_area :descricao, class: "form-control mb-4 pcd", placeholder: "Descrição" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :thumbnail, "Capa do livro", class: "mb-3" %> <br>
+        <%= form.file_field :thumbnail, class: "mb-4" %>
+      </div>
+
+      <!-- Botão submit -->
+      <div class="actions text-center">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
     </div>
   </div>
-</div>
+
 <% end %>

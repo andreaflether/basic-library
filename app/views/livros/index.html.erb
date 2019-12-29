@@ -3,40 +3,21 @@
 <% if @livros.blank? %>
   <h3 class="text-center">Nenhum livro disponível.</h3>
 <% else %>
-<h1 class="text-center">Livros cadastrados</h1>
+<h1 class="text-center">Últimos livros adicionados</h1>
 <br>
-<div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="row">Nome</th>
-        <th scope="row">Autor</th>
-        <th scope="row">Editora</th>
-        <th scope="row">Assunto</th>
-        <th scope="row">Quantidade</th>
-        <th scope="row" colspan="3">Ações</th>
-      </tr>
-    </thead>
 
-    <tbody>
-        <% @livros.order(nome: :asc).each do |livro| %>
-        <tr>
-          <td><%= livro.nome %></td>
-          <td><%= livro.autor %></td>
-          <td><%= livro.editora %></td>
-          <td><%= livro.assunto %></td>
-          <td><%#= livro.quantidade %></td>
-          <td><%= link_to 'Ver', livro %></td>
-          <td><%= link_to 'Editar', edit_livro_path(livro) %></td>
-          <td><%= link_to 'Apagar', livro, method: :delete, data: { confirm: 'Tem certeza que deseja apagar o livro selecionado?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
-  </table>
+
+
+
+  <div class="books">
+    <%= render @livros %>
+
+  </div>
+
+
 
   <%= paginate @livros, theme: 'twitter-bootstrap-4' %>
 
-</div>
 <% end %>
 
   <br>
@@ -46,11 +27,9 @@
   </div>
 
 <script type="text/javascript">
-
 $(".alert").fadeTo(4000, 500).slideUp(500, function(){
     $(".alert").alert('close');
     $(this).remove();
 });
-
 </script>
 <br>

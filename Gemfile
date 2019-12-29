@@ -40,13 +40,6 @@ gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 
-#Bootstrap, JS
-source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap', '4.3.1'
-  gem 'rails-assets-jquery'
-  gem 'rails-assets-tether'
-end
-
 #Kaminari
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'

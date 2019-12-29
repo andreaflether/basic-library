@@ -1,15 +1,54 @@
-  <div class="card mt-3">
-    <h2 class="card-header"><%= @livro.nome %></h2>
-    <div class="card-body card-txt">
-      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-bIW-1VdekDPFvNIQX7EPxXS-Zpb1iivcegdFk7zAPKA6PDt0" %>
-      <p class="card-text"><b>Nome do livro: </b><%= @livro.nome %></p>
-      <p class="card-text"><b>Autor: </b><%= @livro.autor %></p>
-      <p class="card-text"><b>Editora: </b><%= @livro.editora %></p>
-      <p class="card-text"><b>Assunto: </b><%= @livro.assunto %></p>
-      <p class="card-text"><b>Descrição </b><%= @livro.descricao %></p>
-      <%= link_to 'Cadastrar novo livro', new_livro_path, class: "btn btn-primary" %>
-    </div>
+<style>
+body {
+  background-color: rgb(240, 240, 240);
+}
+</style>
+<br>
+
+<div class="row">
+  <div class="col-md-3"> <!-- Coluna da imagem e dos botões -->
+    <%= image_tag @livro.thumbnail, class: "w-100" %>
+    <% if user_add_estante?(current_user, @livro) && user_signed_in? %>
+      <%= link_to 'Remover da estante', add_livro_path(@livro, tipo: 'del'), method: :put,
+      class: "btn btn-danger mt-3 d-flex justify-content-center" %>
+      <% else %>
+      <%= link_to 'Adicionar na estante', add_livro_path(@livro, tipo: 'add'), method: :put,
+      class: "btn btn-primary mt-3 d-flex justify-content-center" %>
+    <% end %>
   </div>
-  <br>
-  <%= link_to 'Editar', edit_livro_path(@livro), class:"txt-link" %> |
-  <%= link_to 'Voltar', livros_path, class:"txt-link" %>
+
+  <div class="col-md-9 book-wrapper" style="background-color: #fff;"> <!-- Coluna das informações técnicas -->
+    <h1><%= @livro.nome %></h1>
+    <p class="book-author">por <strong><%= @livro.autor %></strong></p>
+    <p class="book-desc-show">
+      <%= @livro.descricao %>
+    </p>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="mb-3">Informações Técnicas</h4>
+        <div class="book-desc-show">
+          <p><strong>Páginas:</strong> 256</p>
+          <p><strong>Lançamento:</strong> 01/08/2016</p>
+          <p><strong>Editora:</strong> <%= @livro.editora %></p>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Tags</h4>
+        <% @categorias.each do |c| %>
+        <span class="badge badge-primary book-cat"><%= c %></span>
+        <% end %>
+      </div>
+    </div>
+
+    <p class="book-created_at text-muted">
+      Adicionado em <strong><%= l @livro.created_at, format: :long %></strong>
+    </p>
+    <% if admin? %>
+    <%= link_to "Cadastrar livro", new_livro_path, class: "btn btn-primary btn-sm" %>
+    <%= link_to "Apagar livro", new_livro_path, class: "btn btn-danger btn-sm" %>
+    <% end %>
+    <%= link_to "Ver minha estante", new_livro_path, class: "btn btn-warning btn-sm" %>
+  </div>
+</div>
