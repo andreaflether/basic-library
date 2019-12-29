@@ -1,4 +1,4 @@
-<h1 class="text-center mb-5 mt-3 h1-bookshelf">Estante de <%= current_user.name %></h1>
+<h1 class="text-center mb-5 mt-3">Estante de <%= current_user.name %></h1>
 
 <% if @livros_estante.exists? %>
   <div class="books">
@@ -6,6 +6,8 @@
   </div>
 <% else %>
   <div class="bd-callout bd-callout-info">
-    <p>Você ainda não tem nenhum livro na estante. <%= link_to 'Adicione', root_path%> um para vê-lo aqui.</p>
+    <p class="no-books">Você ainda não tem nenhum livro na estante.
+      <strong><%= link_to 'Adicione um', root_path%></strong> para vê-lo aqui.
+    </p>
   </div>
 <% end %>

@@ -8,7 +8,7 @@ class LivrosController < ApplicationController
     if params[:nome]
       @livros = Livro.where('nome LIKE ?', "%#{params[:nome]}%").order('nome ASC')
     else
-      @livros = Livro.all.order('nome ASC').page(params[:page])
+      @livros = Livro.all.order('created_at DESC').page(params[:page])
   end
   end
 

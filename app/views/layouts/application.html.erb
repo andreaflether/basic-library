@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html lang="pt-br">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -57,7 +58,7 @@
 
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-light txt-link-p" data-toggle="dropdown" href="#"
+            <a class="nav-link dropdown-toggle txt-link-p" data-toggle="dropdown" href="#"
             role="button" aria-haspopup="true" aria-expanded="false">Usuário</a>
             <div class="dropdown-menu">
               <%= link_to edit_user_registration_path, class: "dropdown-item" do  %>

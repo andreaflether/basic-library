@@ -3,28 +3,11 @@
 <% if @livros.blank? %>
   <h3 class="text-center">Nenhum livro disponível.</h3>
 <% else %>
-<h1 class="text-center">Últimos livros adicionados</h1>
-<br>
-
-
-
-
+  <h1 class="text-center">Últimos livros adicionados</h1>
+  <br>
   <div class="books">
     <%= render @livros %>
-
   </div>
-
-
-
-  <%= paginate @livros, theme: 'twitter-bootstrap-4' %>
-
-<% end %>
-
   <br>
-
-  <div class="text-center">
-    <%= link_to 'Cadastrar novo livro', new_livro_path, class:"txt-link btn btn-primary" %>
-  </div>
-
-
-<br>
+  <%= paginate @livros, theme: 'twitter-bootstrap-4', remote: true %>
+<% end %>

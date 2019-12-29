@@ -37,13 +37,12 @@ body {
           <p><strong>Páginas:</strong> 256</p>
           <p><strong>Lançamento:</strong> 01/08/2016</p>
           <p><strong>Editora:</strong> <%= @livro.editora %></p>
-
         </div>
       </div>
       <div class="col-md-6">
         <h4>Tags</h4>
         <% @categorias.each do |c| %>
-        <span class="badge badge-primary book-cat"><%= c %></span>
+        <span class="badge badge-primary book-cat mb-2"><%= c %></span>
         <% end %>
       </div>
     </div>

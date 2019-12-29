@@ -91,6 +91,10 @@ table {
   background: rgba(white, .8);
   cursor: pointer;
   padding: 20px;
+
+  h2 {
+    font-size: 20px !important;
+  }
 }
 
 .books {
@@ -112,7 +116,6 @@ table {
 	@media only screen and (max-width: 400px) {
 		grid-template-columns: 1fr;
 	}
-
 }
 
 .book {
@@ -135,8 +138,12 @@ table {
   font-size: 14px;
 }
 
-.book-author {
+.book-author, .no-books {
   font-size: 16px;
+}
+
+.no-books {
+  margin: 0 auto !important;
 }
 
 .visible {
