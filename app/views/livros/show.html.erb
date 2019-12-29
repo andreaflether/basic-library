@@ -8,17 +8,23 @@ body {
 <div class="row">
   <div class="col-md-3"> <!-- Coluna da imagem e dos botões -->
     <%= image_tag @livro.thumbnail, class: "w-100" %>
-    <% if user_add_estante?(current_user, @livro) && user_signed_in? %>
-      <%= link_to 'Remover da estante', add_livro_path(@livro, tipo: 'del'), method: :put,
-      class: "btn btn-danger mt-3 d-flex justify-content-center" %>
-      <% else %>
-      <%= link_to 'Adicionar na estante', add_livro_path(@livro, tipo: 'add'), method: :put,
-      class: "btn btn-primary mt-3 d-flex justify-content-center" %>
+    <% if user_signed_in? %>
+      <% if user_add_estante?(current_user, @livro) %>
+        <%= link_to 'Remover da estante', add_livro_path(@livro, tipo: 'del'), method: :put,
+        class: "btn btn-danger mt-3 d-flex justify-content-center" %>
+        <% else %>
+        <%= link_to 'Adicionar na estante', add_livro_path(@livro, tipo: 'add'), method: :put,
+        class: "btn btn-primary mt-3 d-flex justify-content-center" %>
+      <% end %>
+      <%= link_to 'Clica ai', estante_index_path %>
+    <% else %>
+      <%= link_to 'Adicionar na estante', new_user_registration_path, class: "btn btn-primary mt-3 d-flex justify-content-center" %>
     <% end %>
   </div>
 
   <div class="col-md-9 book-wrapper" style="background-color: #fff;"> <!-- Coluna das informações técnicas -->
     <h1><%= @livro.nome %></h1>
+
     <p class="book-author">por <strong><%= @livro.autor %></strong></p>
     <p class="book-desc-show">
       <%= @livro.descricao %>

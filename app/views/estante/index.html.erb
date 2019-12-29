@@ -1,0 +1,11 @@
+<h1 class="text-center mb-5 mt-3 h1-bookshelf">Estante de <%= current_user.name %></h1>
+
+<% if @livros_estante.exists? %>
+  <div class="books">
+    <%= render @livros_estante, livro: @livro %>
+  </div>
+<% else %>
+  <div class="bd-callout bd-callout-info">
+    <p>Você ainda não tem nenhum livro na estante. <%= link_to 'Adicione', root_path%> um para vê-lo aqui.</p>
+  </div>
+<% end %>

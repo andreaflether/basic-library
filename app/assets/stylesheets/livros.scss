@@ -4,18 +4,6 @@
   transition: 0.3s;
 }
 
-
-
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-gap: 35px;
-}
-
-// .searchbar {
-//   margin-right: 65px !important;
-// }
-
 .btn-primary:hover {
   background-color: rgb(0, 111, 176) !important;
   background: rgb(0, 111, 176) !important;
@@ -65,7 +53,7 @@ table {
 }
 
 .txt-link-p, .card-txt, .txt-link {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .alert-danger {
@@ -100,7 +88,7 @@ table {
   bottom: 0;
   left: 0;
   padding: 10px;
-  background: rgba(black, .7);
+  background: rgba(white, .8);
   cursor: pointer;
   padding: 20px;
 }
@@ -130,7 +118,7 @@ table {
 .book {
 	position: relative;
 	display: block;
-	color: white !important;
+	color: black !important;
 }
 
 .book-img {
@@ -161,4 +149,23 @@ table {
 
 .book-wrapper {
   padding: 30px;
+  border: 1px solid #e3e3e3 !important;
+  border-radius: 5px !important;
+}
+
+.bd-callout-info {
+  border-left-color: rgb(0, 124, 195) !important;
+}
+
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #e3e3e3;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+}
+
+.h1-bookshelf {
+  color: rgb(100, 100, 100);
 }
