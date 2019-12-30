@@ -7,4 +7,5 @@ document.addEventListener("turbolinks:load", function() {
   $('.book').hover(function() {
     $(this).children('.book-info').fadeToggle().toggleClass('visible');
   });
+
 });

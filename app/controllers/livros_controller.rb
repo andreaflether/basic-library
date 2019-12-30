@@ -6,10 +6,12 @@ class LivrosController < ApplicationController
   # GET /livros.json
   def index
     if params[:nome]
-      @livros = Livro.where('nome LIKE ?', "%#{params[:nome]}%").order('nome ASC')
+      @livros = Livro.where('nome LIKE ?', "%#{params[:nome]}%").page(params[:page])
     else
-      @livros = Livro.all.order('created_at DESC').page(params[:page])
-  end
+      # @livros = Livro.all.order('created_at DESC').page(params[:page])
+      @livros = Livro.all
+@livros = Kaminari.paginate_array(@livros).page(params[:page]).per(5)
+    end
   end
 
   # GET /livros/1

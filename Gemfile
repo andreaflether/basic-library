@@ -39,6 +39,7 @@ gem 'devise'
 gem 'ransack'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'will_paginate', '~> 3.1.0'
 
 #Kaminari
 gem 'kaminari'
