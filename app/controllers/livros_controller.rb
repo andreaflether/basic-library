@@ -1,19 +1,23 @@
 class LivrosController < ApplicationController
-  before_action :set_livro, only: [:show, :edit, :update, :destroy]
+  before_action :set_livro, only: [:show, :edit, :update, :destroy, :estante]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /livros
   # GET /livros.json
   def index
     if params[:nome]
-      @livros = Livro.where('nome LIKE ?', "%#{params[:nome]}%").order('nome ASC')
+      @livros = Livro.where('nome LIKE ?', "%#{params[:nome]}%").page(params[:page])
     else
-      @livros = Livro.all.order('nome ASC').page(params[:page])
-  end
+      # @livros = Livro.all.order('created_at DESC').page(params[:page])
+      @livros = Livro.all
+@livros = Kaminari.paginate_array(@livros).page(params[:page]).per(5)
+    end
   end
 
   # GET /livros/1
   # GET /livros/1.json
   def show
+    @categorias = @livro.assunto.split(',')
   end
 
   # GET /livros/new
@@ -65,6 +69,22 @@ class LivrosController < ApplicationController
     end
   end
 
+  # Adicionar e remover livros na/da estante para o current_user
+  def estante
+    tipo = params[:tipo]
+
+    if tipo == 'add'
+      current_user.adicoes_estante << @livro
+      redirect_to request.referrer, notice: "#{@livro.nome} foi adicionado à sua estante!"
+    elsif tipo == 'del'
+      current_user.adicoes_estante.delete(@livro)
+      redirect_to request.referrer, notice: "#{@livro.nome} foi removido da sua estante."
+    else
+      # nenhum tipo. nada deve acontecer.
+      redirect_to livro_path(@book), alert: "Oops! Algo deu errado. Tente novamente."
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_livro
@@ -73,6 +93,6 @@ class LivrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def livro_params
-      params.require(:livro).permit(:nome, :autor, :editora, :assunto, :quantidade)
+      params.require(:livro).permit(:nome, :autor, :editora, :assunto, :descricao, :thumbnail)
     end
 end

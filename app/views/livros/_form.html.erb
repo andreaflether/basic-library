@@ -2,7 +2,6 @@
   <% if livro.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
-
       <ul>
       <% livro.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,38 +10,49 @@
     </div>
   <% end %>
 
-    <!-- Nome -->
-    <div class="field">
-      <%= form.label :nome, class: "mb-0 title-label" %>
-      <%= form.text_field :nome, class: "form-control mb-4 pcd", placeholder: "Nome do livro" %>
-    </div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
 
-    <!-- Autor -->
-    <div class="field">
-      <%= form.label :autor, class: "mb-0 title-label" %>
-      <%= form.text_field :autor, class: "form-control mb-4 pcd", placeholder: "Nome do(a) autor(a)" %>
-    </div>
+      <!-- Nome -->
+      <div class="field">
+        <%= form.label :nome, class: "mb-0 title-label" %>
+        <%= form.text_field :nome, class: "form-control mb-4 pcd", placeholder: "Nome do livro" %>
+      </div>
 
-    <!-- Editora -->
-    <div class="field">
-      <%= form.label :editora, class:"mb-0 title-label" %>
-      <%= form.text_field :editora, class: "form-control mb-4 pcd", placeholder: "Editora" %>
-    </div>
+      <!-- Autor -->
+      <div class="field">
+        <%= form.label :autor, class: "mb-0 title-label" %>
+        <%= form.text_field :autor, class: "form-control mb-4 pcd", placeholder: "Nome do(a) autor(a)" %>
+      </div>
 
-    <!-- Assunto -->
-    <div class="field">
-      <%= form.label :assunto, class:"mb-0 title-label" %>
-      <%= form.text_field :assunto, class: "form-control mb-4 pcd", placeholder: "Assunto" %>
-    </div>
+      <!-- Editora -->
+      <div class="field">
+        <%= form.label :editora, class:"mb-0" %>
+        <%= form.text_field :editora, class: "form-control mb-4 pcd", placeholder: "Editora" %>
+      </div>
 
-    <!-- Quantidade disponível -->
-    <div class="field">
-      <%= form.label :quantidade, class:"mb-0 title-label" %>
-      <%= form.text_field :quantidade, class: "form-control mb-4 pcd", placeholder: "Quantidade de livros disponível" %>
-    </div>
+      <!-- Assunto -->
+      <div class="field">
+        <%= form.label :assunto, class:"mb-0" %>
+        <%= form.text_field :assunto, class: "form-control mb-4 pcd", placeholder: "Assunto" %>
+      </div>
 
-    <!-- Botão submit -->
-    <div class="actions">
-      <%= form.submit class: 'btn btn-primary' %>
+      <!-- Descrição -->
+      <div class="field">
+        <%= form.label :descricao, "Descrição", class:"mb-0" %>
+        <%= form.text_area :descricao, class: "form-control mb-4 pcd", placeholder: "Descrição" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :thumbnail, "Capa do livro", class: "mb-3" %> <br>
+        <%= form.file_field :thumbnail, class: "mb-4" %>
+      </div>
+
+      <!-- Botão submit -->
+      <div class="actions text-center">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
     </div>
+  </div>
+
 <% end %>

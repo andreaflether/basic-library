@@ -1,0 +1,14 @@
+<h1 class="text-center mb-5 mt-3">Estante de <%= current_user.name %></h1>
+
+<% if @livros_estante.exists? %>
+  <div class="books">
+    <%= render @livros_estante, livro: @livro %>
+  </div>
+  <%= paginate @livros_estante, theme: 'twitter-bootstrap-4' %>
+<% else %>
+  <div class="bd-callout bd-callout-info">
+    <p class="no-books">Você ainda não tem nenhum livro na estante.
+      <strong><%= link_to 'Adicione um', root_path%></strong> para vê-lo aqui.
+    </p>
+  </div>
+<% end %>

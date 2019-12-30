@@ -12,6 +12,9 @@ pt-BR:
       livro:
         one: Livro
         other: Livros
+      user:
+        one: Usuário
+        other: Usuários
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
